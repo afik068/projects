@@ -10,19 +10,19 @@
 
 ניתוח הסכמי מכר, שכירות, תמ"א 38, פינוי-בינוי, קומבינציה ונסחי טאבו — הכל מבוסס בינה מלאכותית.
 
-### עדכון אחרון (15.04.2026)
+### Latest Update (15.04.2026)
 
-**מנתח הסכמי קומבינציה — pipeline מלא**
-- חילוץ מובנה מ-PDF דרך Gemini (JSON) + יצירת תמצית מקצועית בעברית (שלב שני כמו תמ"א 38)
-- פלט Word מקצועי דרך Node.js docx — David, RTL, כותרות עם קו תחתון, יישור מושלם
-- פלט Excel עם 7 גיליונות (סיכום, תמורות, מסים, ערבויות, חריגים, תנאים מתלים, חלוקת תקבולים)
-- Fallback אוטומטי מ-Gemini Pro ל-Flash בעומס (503)
-- ג'ובים ברקע עם progress bar, טיפול בשגיאות, ו-caching לפי hash
+**Combination Contract Analyzer — Full Pipeline**
+- Two-phase Gemini extraction: structured JSON + professional Hebrew report text generation
+- Word export via Node.js docx engine — David font, RTL, underlined headers, justified layout
+- Excel export with 7 sheets (summary, units, taxes, guarantees, anomalies, conditions, revenue sharing)
+- Automatic fallback from Gemini Pro to Flash on overload (503)
+- Background jobs with progress bar, error handling, and file-hash caching
 
-**שיפורים כלליים**
-- תיקון באגים בתצוגת תוצאות ושגיאות
-- הוספת address dialog משותף לכל הכלים
-- עדכון הנחיות sidebar למנתח ההסכמים
+**General Improvements**
+- Bug fixes in result/error display and tab navigation
+- Shared address dialog across all analyzer tools
+- Updated sidebar instructions for contract analyzer
 
 ---
 
