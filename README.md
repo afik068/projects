@@ -30,4 +30,4 @@
 
 ## 📫 יצירת קשר
 
-[![Email](https://img.shields.io/badge/office@iy1.co.il-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:office@iy1.co.il)
+[![Email](https://img.shields.io/badge/afik.bracha@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:afik.bracha@gmail.com)
