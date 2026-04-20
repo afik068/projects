@@ -10,19 +10,18 @@
 
 ניתוח הסכמי מכר, שכירות, תמ"א 38, פינוי-בינוי, קומבינציה ונסחי טאבו — הכל מבוסס בינה מלאכותית.
 
-### Latest Update (15.04.2026)
+### Latest Update (20.04.2026)
 
-**Combination Contract Analyzer — Full Pipeline**
-- Two-phase Gemini extraction: structured JSON + professional Hebrew report text generation
-- Word export via Node.js docx engine — David font, RTL, underlined headers, justified layout
-- Excel export with 7 sheets (summary, units, taxes, guarantees, anomalies, conditions, revenue sharing)
-- Automatic fallback from Gemini Pro to Flash on overload (503)
-- Background jobs with progress bar, error handling, and file-hash caching
+**Tabu Analyzer — Owner-Shift Detection Across All Excel Flows**
 
-**General Improvements**
-- Bug fixes in result/error display and tab navigation
-- Shared address dialog across all analyzer tools
-- Updated sidebar instructions for contract analyzer
+Fixed a subtle extraction bug where the Gemini model occasionally "shifted" owners across sub-parcel boundaries: sub-parcel N would land empty, N's real owner would appear under N+1, and N+1's owner would vanish entirely. Before this fix, the shifted output silently reached the appraiser's Excel.
+
+- Post-parse validator flags any sub-parcel with no owners and raises a flow-specific shift exception carrying the partial rows.
+- Retry loop re-runs the same model (shifts are stochastic), then falls back to Gemini Flash, and finally returns the best-effort rows flagged for manual review rather than discarding work.
+- Excel export paints flagged rows yellow (FFFF00) and attaches a Hebrew comment on the owner cell explaining the N±1 leak pattern.
+- Streamlit UI shows a red banner with a "check adjacent rows" tip only when a shift was actually detected — no permanent caveat in the happy path.
+- Applied uniformly to the three Excel-producing flows: parcel allocation table, zero report, and scoring table.
+- Regression coverage: 9 new unit tests verifying exception payload, result properties, yellow-fill presence on flagged rows, and clean-extraction regression guards.
 
 ---
 
